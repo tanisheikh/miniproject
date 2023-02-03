@@ -1,13 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { Provider } from "react-redux";
+import "primereact/resources/themes/bootstrap4-light-blue/theme.css"; //theme
+import "primereact/resources/primereact.min.css"; //core css
+import "primeicons/primeicons.css"; //icons
+import { getPersistor } from "@rematch/persist";
+import { PersistGate } from "redux-persist/lib/integration/react";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import "./index.css";
+import "./App.css";
+
+import store from "./Store/Store";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+console.info("store >>> ", store.getState());
+const persistor = getPersistor();
+
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <App />
+      </PersistGate>
+    </Provider>
   </React.StrictMode>
 );
 
