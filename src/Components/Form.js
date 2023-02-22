@@ -4,11 +4,12 @@ import * as Yup from "yup";
 import { Button } from "primereact/button";
 import { Dropdown } from "primereact/dropdown";
 import { Calendar } from "primereact/calendar";
+import db from "../FireStore/fireStore";
 
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 
 const Form = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const StatusField = [
     { label: "Todo", value: "Todo" },
@@ -33,7 +34,8 @@ const Form = () => {
       console.log("values===", values);
       console.info("onSubmit Called");
       debugger;
-      dispatch.formModel.createRecordAsync(values);
+      // dispatch.formModel.createRecordAsync(values);
+      db.collection("TodoData").add(values);
     },
     validationSchema: Yup.object({
       title: Yup.string().required(),

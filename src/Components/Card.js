@@ -3,19 +3,19 @@ import { Card } from "primereact/card";
 import "primeicons/primeicons.css";
 import { useDispatch } from "react-redux";
 
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import moment from "moment";
 
 const Cards = (props) => {
-  const state = useSelector((state) => state.formModel);
-  const data = state.todoList;
-  const Id = state.Id;
-  const status = props.status;
-  console.info("current State", state);
-  console.log("current data", data);
-  console.log("current status", status);
-  console.log("Current Id", Id);
-  const dispatch = useDispatch();
+  // const state = useSelector((state) => state.formModel);
+  // const data = state.todoList;
+  // const Id = state.Id;
+  // const status = props.status;
+  // console.info("current State", state);
+  // console.log("current data", data);
+  // console.log("current status", status);
+  // console.log("Current Id", Id);
+  // const dispatch = useDispatch();
 
   const filteredData = data.filter((dataItem) => dataItem.status === status);
   const getFormatDate = (From, To) => {
